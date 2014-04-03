@@ -37,6 +37,11 @@ Alkomap.config(['$routeProvider', 'cfpLoadingBarProvider', function($routeProvid
             controller: 'FavouritesController'
         })
 
+        .when('/about', {
+            templateUrl: 'partials/about.html',
+            controller: 'AboutController'
+        })
+
         .otherwise({redirectTo: '/'});
 
     cfpLoadingBarProvider.includeSpinner = false;

@@ -132,6 +132,23 @@ angular.module('Alkomap.controllers', [])
     });
     
     $scope.favourites = localStorageService.getObject('favourites');
+}])
+
+.controller('AboutController', ['$scope','$rootScope', '$filter', 'localStorageService', 'Categories',function($scope, $rootScope, $filter, localStorageService, Categories){
+
+    $scope.nightlifeCatId = '4d4b7105d754a06376d81259';
+    $rootScope.categoriesVisible = false;
+    $rootScope.activeClass = '';
+    $rootScope.showCategories = function () {
+        $rootScope.categoriesVisible = !$rootScope.categoriesVisible;
+        $rootScope.activeClass = ($rootScope.activeClass === '') ? 'active' : '';
+    }
+
+    //Get categories links for navigation  
+    Categories.success(function (data, status) {
+        $scope.categories = $filter('categoriesFilter')(data.response.categories, $scope.nightlifeCatId);
+    });
+    
 }]);
 
 /**

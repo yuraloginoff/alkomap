@@ -8,3 +8,4 @@ Built with AngularJS.
 TODO:
 + Comment code
 + i18n
++ design
