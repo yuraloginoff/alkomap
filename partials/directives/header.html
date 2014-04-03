@@ -1,0 +1,21 @@
+<header id="header">
+    <div id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#">Alkomap</a>
+            </div>
+            <div class="navbar-collapse collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-class="activeClass">
+                        <a href="" ng-click="showCategories()">Места</a>
+                    </li>
+                    <li><a href="#/favourites">Избранное</a></li>
+                    <li><a href="#/about">О сервисе</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

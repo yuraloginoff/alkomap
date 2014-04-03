@@ -1,0 +1,34 @@
+<section class="my-fluid-container content">
+
+	<div categories></div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="venue" ng-repeat="venue in venues" ng-mouseenter="openInfoWindow($event, venue)">
+				<div class="venueIndex">{{$index+1}}.</div>
+				<div class="venueMainInfo">
+					<h4><a ng-href="#/venue/{{venue.id}}">{{venue.name}}</a></h4>
+					<p>
+						<span ng-if="venue.location.address">{{venue.location.address}}<br></span>
+						На расстоянии: {{venue.location.distance}} м.<br>
+						<small class="text-muted">
+							<span ng-repeat="cat in venue.categories">{{cat.name}}</span>
+						</small>
+					</p>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-8 mapWrap">
+			<div id="map"></div>
+		</div>
+	</div>
+
+	<div class="messagePopup" ng-show="loadVenuesButton">	
+		<div class="alert alert-dismissable alert-success">
+			<button type="button" class="close" data-dismiss="alert" ng-click="hideAlert()">×</button>
+			<a href ng-click="loadVenues()"><strong>Искать для этой области?</strong></a>
+		</div>
+	</div>
+</section>

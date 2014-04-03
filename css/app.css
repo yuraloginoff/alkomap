@@ -1,0 +1,48 @@
+/* app css stylesheet */
+
+.content{padding-top: 60px;}
+
+#map {height: 400px;}
+.mapWrap{position: fixed; right: 0;}
+
+.categories{margin-bottom: 20px;}
+
+/* override the default loading bar CSS*/
+#loading-bar .bar { background: #18bc9c; }
+#loading-bar-spinner .spinner-icon { border-top-color: #18bc9c; border-left-color: #18bc9c; }
+#loading-bar .peg { -webkit-box-shadow: #18bc9c 1px 0 6px 1px; box-shadow: #18bc9c 1px 0 6px 1px; }
+
+/* Animation */
+.categories {
+  position: fixed;
+  height: 130px;
+  -webkit-transition:top linear 0.3s;
+  transition:top linear 0.3s;
+  top: 60px;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #ecf0f1;
+}
+.categories.ng-hide { top: -130px; }
+.categories.ng-hide-add,
+.categories.ng-hide-remove { display: block !important; }
+
+/* Override Bottstrap fluid container */
+.my-fluid-container { margin-left: auto; margin-right: auto; }
+.my-fluid-container .row { margin-left: 0; margin-right: 0; }
+.my-fluid-container .row>div { padding-left: 0; padding-right: 0; }
+
+.venue{ padding: 15px 15px 15px 10px; border-bottom: 1px solid #ecf0f1;}
+.venue:hover{background-color: #ecf0f1;}
+.venueIndex {float: left; margin-top: 11px; width: 30px; text-align: right; margin-right: 10px;}
+.venueMainInfo {margin-left: 40px;}
+
+.messagePopup {position: absolute; top: 70px; right: 20px;}
+
+.venueCategories span{margin-right: 4px;}
+.hoursStatus{text-transform: lowercase;}
+.venuePhotos{margin-bottom: 10px;}
+.venuePhotos img {margin-right: 4px; margin-bottom: 4px;}
+#venueMap{height: 400px;}
+.venueServices{text-transform: lowercase;}
+.venueServices:first-letter{text-transform: uppercase;}

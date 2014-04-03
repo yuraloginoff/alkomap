@@ -1,0 +1,87 @@
+<div categories></div>
+
+<div class="container-fluid content">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{venue.name}}</h1>
+
+			<p class="venueCategories">
+				<small class="text-muted">Категории: 
+					<span ng-repeat="cat in venue.categories">
+						<a href ng-href="#/venues/{{cat.id}}">{{cat.name}}</a>
+					</span>
+				</small>
+			</p>
+
+			<div>
+				<p ng-if="venue.location.address">
+					{{venue.location.address}}<span ng-if="venue.location.city">, </span>{{venue.location.city}}
+				</p>
+
+				<span ng-if="venue.contact.formattedPhone">
+					<i class="glyphicon glyphicon-earphone"></i>
+					{{venue.contact.formattedPhone}}
+				</span> 
+				<span ng-if="venue.url">
+					&nbsp;&nbsp;&nbsp; <i class="glyphicon glyphicon-globe"></i>
+					<a href="" ng-href="{{venue.url}}">{{venue.url}}</a>
+				</span>
+				
+
+				
+				<div ng-if="venue.attributes.groups.length > 0">
+					<h4>Услуги</h4>
+					<p class="venueServices">
+						<span ng-repeat="group in venue.attributes.groups">
+							<span ng-repeat="item in group.items">{{item.displayName}}</span><span ng-if="!$last">,</span><span ng-if="$last">.</span>
+						</span>
+					</p>
+				</div>
+				
+				<div ng-if="venue.hours">
+					<h4>Часы работы</h4>
+
+					<p ng-if="venue.hours.isOpen">Сейчас открыто: <span class="hoursStatus">{{venue.hours.status}}.</span></p>
+					<p ng-if="!venue.hours.isOpen">Сейчас закрыто: <span class="hoursStatus">{{venue.hours.status}}.</span></p>					
+					
+					<ul ng-if="venue.hours.timeframes.length > 0">
+						<li ng-repeat="frame in venue.hours.timeframes">
+							{{frame.days}}: 
+							<span ng-repeat="time in frame.open">
+								{{time.renderedTime}}<span ng-if="!$last">,</span><span ng-if="$last">;</span>
+							</span> 
+						</li>
+					</ul>				
+				</div>
+				
+
+				
+			</div>
+
+			<div class="venueDescription" ng-if="venue.description">
+				<h4>Описание:</h4>
+				<p>{{venue.description}}</p>
+			</div>
+
+			<div ng-repeat="group in venue.photos.groups" 
+				ng-if="venue.photos.count>0" class="venuePhotos">
+				<h4>{{group.name}}:</h4>
+				
+				<a ng-repeat="item in group.items" 
+					ng-href="{{item.prefix}}original{{item.suffix}}">
+					<img ng-src="{{item.prefix}}100x100{{item.suffix}}" 
+						class="img-thumbnail" />
+				</a>				
+			</div>
+
+			<p>
+				<a href="" ng-click="addToFavourites()"><i class="glyphicon glyphicon-star"></i> Добавить в избранное</a>
+			</p>
+				
+		</div>
+	</div> <!-- / .row -->
+</div>
+
+<div class="my-fluid-container">
+	<div id="venueMap"></div>	
+</div>

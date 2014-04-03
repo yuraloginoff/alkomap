@@ -1,0 +1,9 @@
+<div class="row categories" ng-show="categoriesVisible">
+	<div class="col-md-12">
+		<ul class="nav nav-pills">
+				<li ng-repeat="cat in categories | orderBy: 'pluralName'">
+					<a href="#/venues/{{cat.id}}">{{cat.pluralName}}</a>
+				</li>
+		</ul>
+	</div>
+</div>
