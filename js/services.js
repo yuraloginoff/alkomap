@@ -119,6 +119,20 @@ angular.module('Alkomap.services', [])
         },
 
         /**
+         * Get object from LS
+         * @param  {[string]} obj
+         * @return {[object]}     [description]
+         */
+        getObject : function (obj) {
+            if (localStorage[obj]) {
+                var parsedObj = JSON.parse(localStorage[obj]);
+                return parsedObj;
+            } else {
+                return {};
+            }               
+        },
+
+        /**
          * Create array of objects in LS
          * @param {[string]} lsProp [LS property name to contain array]
          * @param {[object]} data   [object to add into LS]
@@ -128,6 +142,7 @@ angular.module('Alkomap.services', [])
             if (!localStorage[lsProp]) {
                 a.push(data);
                 localStorage.setItem(lsProp, JSON.stringify(a));
+                return true;
             } else {                    
                 a = JSON.parse(localStorage.getItem(lsProp));
                 for (var i = 0; i < a.length; i++) {
