@@ -6,6 +6,6 @@ alkomap.ru
 Built with AngularJS.
 
 TODO:
-+ Comment code
 + i18n
 + design
++ delete favourites items feature

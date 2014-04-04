@@ -9,7 +9,6 @@ var Alkomap = angular.module('Alkomap', [
     'Alkomap.services',
     'Alkomap.directives',
     'Alkomap.controllers',
-    // 'ui.map',
     'ui.event',
     'ui.bootstrap',
     'chieffancypants.loadingBar',
@@ -38,8 +37,7 @@ Alkomap.config(['$routeProvider', 'cfpLoadingBarProvider', function($routeProvid
         })
 
         .when('/about', {
-            templateUrl: 'partials/about.html',
-            controller: 'AboutController'
+            templateUrl: 'partials/about.html'
         })
 
         .otherwise({redirectTo: '/'});
@@ -48,7 +46,7 @@ Alkomap.config(['$routeProvider', 'cfpLoadingBarProvider', function($routeProvid
 }]);
 
 /**
- * Create new obkect in localStorage if it is not exist
+ * Create new object in localStorage if it is not exist
  */
 if (!localStorage.alkomap) {
     localStorage.alkomap = JSON.stringify({});
