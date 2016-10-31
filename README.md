@@ -1,7 +1,7 @@
-alkomap.ru
+alkomap
 ===========
 
-[alkomap.ru/v2](http://alkomap.ru/v2) website source code.
+[alkomap](https://yuraloginoff.github.io/alkomap) website source code.
 
 Built with AngularJS.
 
